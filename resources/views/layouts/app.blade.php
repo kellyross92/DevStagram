@@ -9,13 +9,24 @@
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-3xl font-black ">DevStagram - @yield('titulo')</h1>                
-                <nav class="flex gap-2 items-center">
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Log in</a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">
-                        Crear cuenta
-                    </a>
-                </nav>
+                <h1 class="text-3xl font-black ">DevStagram - @yield('titulo')</h1> 
+                @auth
+                    <nav class="flex gap-2 items-center">
+                        <a href="{{route('login')}}" class="font-semibold text-gray-600 text-sm">
+                            Welcome <span class="font-normal">{{ auth()->user()->name }}</span> </a>
+                        <a href="{{route('logout')}}" class="font-bold uppercase text-gray-600 text-sm">
+                            Cerrar Sesion
+                        </a>
+                    </nav>  
+                @endauth               
+                @guest
+                    <nav class="flex gap-2 items-center">
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Log in</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">
+                            Crear cuenta
+                        </a>
+                    </nav>                    
+                @endguest
             </div>
         </header>
 
