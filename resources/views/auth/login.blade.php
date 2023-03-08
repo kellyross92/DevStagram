@@ -9,10 +9,14 @@
         <div class="md:w-6/12">
             <img src="{{asset('img/login.jpg')}}" alt="Imagen registro de usuarios">
         </div>
-
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form novalidate>
-                @csrf                
+
+            <form action="{{ route('login')}}" method="POST" novalidate>
+                @csrf  
+                
+                @if (session('mensaje'))
+                    <p class="bg-red-500 text-white my-2 text-xs rounded-lg p-2 text-center font-medium">{{session('mensaje')}}</p>                    
+                @endif           
                 <div class="mb-5">
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
                         Email:
@@ -41,7 +45,8 @@
                     @error('password')
                         <p class="text-red-500 my-2 text-sm">* {{$message}}</p>
                     @enderror                  
-                </div>                
+                </div>   
+                             
                 <input type="submit"
                     value="Iniciar sesion"
                     class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
