@@ -14,9 +14,12 @@
                     <nav class="flex gap-2 items-center">
                         <a href="{{route('login')}}" class="font-semibold text-gray-600 text-sm">
                             Welcome <span class="font-normal">{{ auth()->user()->name }}</span> </a>
-                        <a href="{{route('logout')}}" class="font-bold uppercase text-gray-600 text-sm">
-                            Cerrar Sesion
-                        </a>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="font-bold uppercase text-gray-600 text-sm">
+                                    Cerrar Sesion
+                                </button>
+                            </form>
                     </nav>  
                 @endauth               
                 @guest
