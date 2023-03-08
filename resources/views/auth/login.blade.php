@@ -46,6 +46,11 @@
                         <p class="text-red-500 my-2 text-sm">* {{$message}}</p>
                     @enderror                  
                 </div>   
+                <div class="mb-5">
+                    <input type="checkbox" name="remember">
+                    <label class="mb-2 text-gray-400 font-medium"> Recuerdame
+                    </label>
+                </div>
                              
                 <input type="submit"
                     value="Iniciar sesion"
