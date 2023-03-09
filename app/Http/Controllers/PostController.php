@@ -14,10 +14,14 @@ class PostController extends Controller
     
 
     public function index(User $user)
-    {
-        
+    {        
         return view('dashboard', [
             'user' => $user
-        ]);
+        ]);        
+    }
+
+    public function create()
+    {
+        dd('Creando Un  Post');
     }
 }
